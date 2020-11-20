@@ -164,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -231,7 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'JWTAuth'   => Tymon\JWTAuthFacades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class
+        'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class,
+       
 
     ],
 
