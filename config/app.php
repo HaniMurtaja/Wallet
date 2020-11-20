@@ -181,7 +181,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class
 
     ],
 
@@ -234,7 +234,8 @@ return [
 
         'JWTAuth'   => Tymon\JWTAuthFacades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class,
-       
+        
+          Khill\Lavacharts\Laravel\LavachartsFacade::class
 
     ],
 
