@@ -181,6 +181,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+         'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
 
     ],
 
