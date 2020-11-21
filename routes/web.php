@@ -45,6 +45,10 @@ Route::group(['middleware' => ['client']], function () {
     ['as'=>'home',
     'uses'=>'ClientController@dashboard'
     ]);
+    Route::get('/admin', 
+    ['as'=>'admin',
+    'uses'=>'AdminController@admin'
+    ]);
     Route::get('/transaction', 
     ['as'=>'transaction',
     'uses'=>'TransactionController@getTransactions'
