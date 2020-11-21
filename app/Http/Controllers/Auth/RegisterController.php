@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'phonefield' => 'phone', 'phonefield_country' => 'required_with:phonefield', 'phonefield' => 'phone:custom_country_field', 'custom_country_field' => 'required_with:phonefield',
             'password' => 'required|string|min:8|confirmed',
             'birthdate' => 'date_format:Y-m-d|before:today',
-            'avatar' => 'image',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     }
 
