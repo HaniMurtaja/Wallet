@@ -1,0 +1,61 @@
+<?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Account;
+use App\Transaction;
+use App\Chart;
+
+
+class ChartController extends Controller
+{
+   
+     public function index()
+    {
+
+        // get monthly income for chart
+        $monthlyVisits = $this->getMonthlyVisits();
+        $visits        = Shortener::all()->sum( 'total_visits' );
+        $leads         = Lead::count();
+        $domains       = Domain::count();
+
+
+        return view( 'user.dashboard.index', compact( 'domains', 'leads', 'visits', 'monthlyVisits' ) );
+    }
+
+ public function getMonthlyincome()
+    {
+        $monthlyVisitors = DB::table('shorteners')
+            ->select([
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('count(total_income as total_income'),
+            ])
+            ->groupBy('month')
+            ->get();
+    }
+    
+     public function getYearlyincome()
+    {
+        $monthlyVisitors = DB::table('shorteners')
+            ->select([
+                DB::raw('YEAR(created_at) as year'),
+                DB::raw('count(total_income as total_income'),
+            ])
+            ->groupBy('year')
+            ->get();
+    }
+    
+      public function getWeeklyincome()
+    {
+        $monthlyVisitors = DB::table('shorteners')
+            ->select([
+                DB::raw('WEEK(created_at) as week'),
+                DB::raw('count(total_income as total_income'),
+            ])
+            ->groupBy('week')
+            ->get();
+    }
+    
+
+} 
