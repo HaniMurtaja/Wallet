@@ -64,18 +64,31 @@ class ClientAuthController extends Controller
     public function clientRegister(Request $request)
     {
         $this->validate($request, [
-            'names'=>'required',
-            'contact'=>'required',
-            'email' => 'required|email',
-            'password' => 'required',
+             'name' => 'required|string|max:255',
+            'contact'=>'required', 
+            'email' => 'required|string|email|max:255|unique:users',
+            'phonefield' => 'phone', 'phonefield_country' => 'required_with:phonefield', 'phonefield' => 'phone:custom_country_field', 'custom_country_field' => 'required_with:phonefield',
+            'password' => 'required|string|min:8|confirmed',
+            'birthdate' => 'date_format:Y-m-d|before:today',
+            'avatar' => 'image',
         ]);
-        $secret_key = $this->generate_string(30);
+     
         // $client = Client::create(request(['names', 'contact','email', 'password']));
-        $client = new Client();
+       $client = new Client();
         $client->names = $request->names;
         $client->contact=$request->contact;
         $client->email = $request->email;
         $client->password=$request->password;
+        $client->phonefield=$request->phonefield;
+        $client->birthdate=$request->birthdate;
+        $client->image=$request->image;
+        $all = $request->all();
+        $year = $all['birthday_year'];
+        $month = $all['birthday_month'];
+        $day = $all['birthday_day'];
+        $date = Carbon::createFromFormat('Y-m-d', $year.'-'.$month.'-'.$day);
+
+        $request->request->add(['birth_day' => $date->format('Y-m-d')]);
       //  $client->secret_key = $secret_key;
         $client->save();
         $account = new Account();
