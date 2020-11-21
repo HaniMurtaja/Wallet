@@ -31,6 +31,29 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="phone" class="col-lg-2 col-sm-2 control-label">Phone Number</label>
+                                        <div class="col-lg-10">
+                                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                                        </div>
+                                    </div>
+
+                                   <div class="form-group">
+                                        <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Birthdate</label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" name="phone" id="inputEmail1" placeholder="Birthdate">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                   <div class="form-group">
+                                   <form method="post" action="/image/upload" enctype="multipart/form-data">
+                                        <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Image</label>
+                                        <div class="col-lg-10">
+                                            <input type="file" class="form-control" name="image" id="image" placeholder="image">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
                                         <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Password</label>
                                         <div class="col-lg-10">
                                             <input type="password" class="form-control" name="password" id="inputPassword1" placeholder="Password">
