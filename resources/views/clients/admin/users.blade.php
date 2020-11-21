@@ -25,6 +25,13 @@
             </tr>
         @endforeach
     @endif
+            <td>
+                 <a href="#" class="btn btn-success"><Edit</a>
+            </td>
+            <td>
+                 <a href="#" class="btn btn-danger"><delete</a>
+            </td>
+            
     </tbody>
     </table>
 
